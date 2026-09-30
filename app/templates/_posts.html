@@ -1,0 +1,57 @@
+<ul style="list-style-type: none;padding: 0; transform: translateY(-20px);">
+    {% for post in posts %}
+        <hr>
+        <li style="margin-bottom: 20px;">
+            <div class="post-avatar">
+                <a href="{{ url_for('.user', username=post.author.username) }}">
+                    <img class="profile-thumbnail" src="{{ post.author.gravatar(size=40) }}">
+                </a>
+            </div>
+
+            <div class="post-date_and_author">
+
+                <div class="post-author">
+                    <a href="{{ url_for('.user', username=post.author.username) }}">
+                        {{ post.author.username }}
+                    </a>
+                </div>
+
+                <div class="post-date">{{ moment(post.timestamp).fromNow() }}</div>
+            </div>
+
+            <div class="post-body">
+                {% if post.body_html %}
+                    {{ post.body_html | safe}}
+                {% else %}
+                    {{ post.body }}
+                {% endif %}
+
+                <div class="flex">
+                    <div class="ml">
+                        <a href="{{ url_for('.post', id=post.id) }}">
+                            <span class="btn btn-xs btn-primary">永久链接</span>
+                        </a>
+
+                        {% if current_user == post.author %}
+                        <a href="{{ url_for('.edit', id=post.id) }}">
+                            <span class="btn btn-xs btn-default">编辑</span>
+                        </a>
+                        {% elif current_user.is_administrator() %}
+                        <a href="{{ url_for('.edit', id=post.id) }}">
+                            <span class="btn btn-xs btn-danger">编辑 [管理员]</span>
+                        </a>
+                        {% endif %}
+
+                        <a href="{{ url_for('.post', id=post.id) }}#comments" class="ml">
+                            <span class="btn btn-xs btn-success">
+                                {{ post.comments.count() }} 评论
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+

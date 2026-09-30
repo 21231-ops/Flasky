@@ -1,0 +1,4 @@
+<p>亲爱的 {{ user.username }}：</p>
+<p>你申请修改账号邮箱，请点击下面链接确认：</p>
+<p><a href="{{ url_for('auth.change_email_confirm', token=token, _external=True) }}">确认修改邮箱</a></p>
+<p>如果不是你本人操作，请忽略此邮件，你的账号不会发生任何变化。</p>

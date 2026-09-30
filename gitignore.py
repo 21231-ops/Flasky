@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.sqlite
+.env
+.venv/
+venv/
+.idea/
+*.log
+migrations/versions/*.pyc

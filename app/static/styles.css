@@ -1,0 +1,59 @@
+.post-list{
+    margin-bottom : 20px
+
+}
+
+.post-avatar{
+    float: left;
+
+}
+
+
+.post-date_and_author{
+    display:flex
+}
+
+.post-date{
+    margin-left:auto
+}
+
+.post-author{
+
+
+
+}
+
+
+.post-body{
+
+}
+
+img.profile-thumbnail {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+img.profile-avatar {
+    width: 256px;
+    height: 256px;
+    border-radius: 6px;
+    max-width: none;
+    display: block;
+}
+
+.follow-link {
+    text-decoration: none;   /* 去掉整个链接的下划线 */
+}
+
+.follow-link:hover {
+    text-decoration: underline;   /* hover 时才出现 */
+}
+
+.flex {
+    display: flex;
+}
+
+.ml{
+    margin-left:auto
+}

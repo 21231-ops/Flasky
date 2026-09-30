@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Falsky - 评论管理{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+  <h1>评论管理</h1>
+</div>
+{% set moderate = True %}
+{% for comment in comments %}
+{% include '_comments.html' %}
+<hr>
+{% endfor %}
+
+
+{% if pagination.pages > 1 %}
+<div>
+  {{ macros.pagination_widget(pagination, '.moderate') }}
+</div>
+{% endif %}
+{% endblock %}
