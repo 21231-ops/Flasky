@@ -1,6 +1,6 @@
 from wtforms import SubmitField
-from wtforms.fields.choices import SelectField
-from wtforms.fields.simple import TextAreaField, BooleanField
+from wtforms import SelectField
+from wtforms import TextAreaField, BooleanField
 from flask_wtf import FlaskForm
 from flask_pagedown.fields import PageDownField
 from wtforms import StringField
